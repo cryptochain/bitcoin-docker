@@ -4,7 +4,7 @@ RUN groupadd -r bitcoin && useradd -r -m -g bitcoin bitcoin
 
 RUN set -ex \
 	&& apt-get update \
-	&& apt-get install -qq --no-install-recommends ca-certificates dirmngr gosu gpg wget bitcoind \
+	&& apt-get install -qq --no-install-recommends ca-certificates procps nano dirmngr gosu gpg wget bitcoind \
 	&& rm -rf /var/lib/apt/lists/*
 
 # create data directory
@@ -19,4 +19,3 @@ COPY docker-entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 8332 8333 18332 18333
-CMD ["bitcoind"]

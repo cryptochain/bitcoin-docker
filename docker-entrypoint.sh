@@ -7,11 +7,10 @@ if [[ "$1" == "bitcoin-cli" || "$1" == "bitcoin-tx" || "$1" == "bitcoind" || "$1
 	if [[ ! -s "$BITCOIN_DATA/bitcoin.conf" ]]; then
 		cat <<-EOF > "$BITCOIN_DATA/bitcoin.conf"
 		printtoconsole=1
-		listen=1
 		server=1
 		rpcallowip=0.0.0.0/0
-		rpcpassword=${BITCOIN_RPC_PASSWORD:-password}
-		rpcuser=${BITCOIN_RPC_USER:-bitcoin}
+		rpcuser=admin1
+		rpcpassword=123
 		EOF
 		chown bitcoin:bitcoin "$BITCOIN_DATA/bitcoin.conf"
 	fi
