@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker run --name bitcoin-testnet -d -p 18333:18333 amacneil/bitcoin bitcoind -testnet
+docker run --name bitcoin-testnet -d -p 18333:18333 cryptochain/bitcoin-docker bitcoind -testnet
