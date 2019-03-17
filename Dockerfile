@@ -1,8 +1,13 @@
-FROM debian:sid
+FROM ubuntu:18.04
 
 RUN groupadd -r bitcoin && useradd -r -m -g bitcoin bitcoin
 
 RUN set -ex \
+	&& apt-get update \
+	&& apt-get install -y software-properties-common
+
+RUN set -ex \
+	&& apt-add-repository ppa:bitcoin/bitcoin \
 	&& apt-get update \
 	&& apt-get install -qq --no-install-recommends ca-certificates procps nano dirmngr gosu gpg wget bitcoind \
 	&& rm -rf /var/lib/apt/lists/*
