@@ -11,6 +11,10 @@ if [[ "$1" == "bitcoin-cli" || "$1" == "bitcoin-tx" || "$1" == "bitcoind" || "$1
 		rpcallowip=0.0.0.0/0
 		rpcuser=admin1
 		rpcpassword=123
+                addressindex=1
+                timestampindex=1
+                spentindex=1
+                txindex=1
 		EOF
 		chown bitcoin:bitcoin "$BITCOIN_DATA/bitcoin.conf"
 	fi
